@@ -13,7 +13,7 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	
 	@Column(name = "Cat_nombre")
 	private String nombre;
@@ -22,16 +22,16 @@ public class Categoria {
 		
 	}
 
-	public Categoria(Long id, String nombre) {
+	public Categoria(int id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

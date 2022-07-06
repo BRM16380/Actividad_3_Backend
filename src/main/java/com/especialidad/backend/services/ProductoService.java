@@ -13,9 +13,9 @@ public class ProductoService {
 	
 	@Autowired
 	private ProductoRepository productoRepository;
-	
-	public void guardar(Producto producto) {
-		productoRepository.save(producto);
+
+	public <S extends Producto> S guardar(S entity) {
+		return productoRepository.save(entity);
 	}
 	
 	public List<Producto> obtenerTodos(){
@@ -26,8 +26,8 @@ public class ProductoService {
 		return productoRepository.getReferenceById(id);
 	}
 	
-	public void actualizar(Producto producto) {
-		productoRepository.save(producto);
+	public <S extends Producto> S actualizar(S entity) {
+		return productoRepository.save(entity);
 	}
 	
 	public void eliminar(Integer id) {

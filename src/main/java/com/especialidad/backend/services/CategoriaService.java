@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.especialidad.backend.model.Categoria;
+import com.especialidad.backend.model.Producto;
 import com.especialidad.backend.repository.CategoriaRepository;
 
 import java.util.List;
@@ -14,8 +15,8 @@ public class CategoriaService {
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
-	public void guardar(Categoria categoria) {
-		categoriaRepository.save(categoria);
+	public <S extends Categoria> S guardar(S entity) {
+		return categoriaRepository.save(entity);
 	}
 	
 	public List<Categoria> obtenerTodos(){
@@ -26,8 +27,8 @@ public class CategoriaService {
 		return categoriaRepository.getReferenceById(id);
 	}
 	
-	public void actualizar(Categoria categoria) {
-		categoriaRepository.save(categoria);
+	public <S extends Categoria> S actualizar(S entity) {
+		return categoriaRepository.save(entity);
 	}
 	
 	public void eliminar(Integer id) {
